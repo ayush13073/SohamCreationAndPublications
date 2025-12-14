@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | Soham</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="inventoryPage">
+
+    <div class="app-container">
+        <header>
+            <h1>Full Inventory</h1>
+            <p>Book Catalog</p>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-btn">📝 Record</a>
+            <a href="inventory.html" class="nav-btn active">📚 Catalog</a>
+            <a href="analytics.html" class="nav-btn">📊 Reports</a>
+        </nav>
+
+        <div class="card">
+            <h2>Catalog Search</h2>
+            <input type="text" id="catalogSearch" placeholder="Find a book..." onkeyup="filterCatalog()">
+        </div>
+
+        <div id="inventoryContainer" style="padding-bottom: 20px;">
+            </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+    
+    <script>
+        function filterCatalog() {
+            const input = document.getElementById('catalogSearch').value.toLowerCase();
+            const cards = document.getElementsByClassName('book-card');
+            for (let card of cards) {
+                const title = card.innerText.toLowerCase();
+                card.style.display = title.includes(input) ? "flex" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
+

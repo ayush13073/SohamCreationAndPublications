@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Sales | Soham</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Soham Creation</h1>
+            <p>Sales Entry</p>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-btn active">📝 Record</a>
+            <a href="inventory.html" class="nav-btn">📚 Catalog</a>
+            <a href="analytics.html" class="nav-btn">📊 Reports</a>
+        </nav>
+
+        <div class="card">
+            <h2>New Sale</h2>
+            
+            <div class="form-group">
+                <label for="searchInput">🔍 Search Book</label>
+                <input type="text" id="searchInput" placeholder="Type to filter list..." autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="bookSelect">Select Book</label>
+                <select id="bookSelect">
+                    <option value="">Loading database...</option>
+                </select>
+            </div>
+
+            <div class="book-preview">
+                <img id="previewImg" src="https://placehold.co/100x150?text=Select" alt="Cover">
+                <div class="book-info">
+                    <h3 id="bookTitle">-</h3>
+                    <div class="badges">
+                        <span id="bookCategory" class="badge">Category</span>
+                        <span id="bookPrice" class="badge price">₹0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>Quantity</label>
+                    <input type="number" id="qtyInput" value="1" min="1" inputmode="numeric">
+                </div>
+                <div class="form-group half">
+                    <label>Total</label>
+                    <input type="text" id="totalDisplay" value="₹0" disabled>
+                </div>
+            </div>
+
+            <button onclick="recordSale()" class="btn-primary">
+                Confirm Sale ✅
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>Recent Activity</h2>
+            <div id="statusMessage" class="status-msg">Ready.</div>
+            <ul id="recentSalesList" class="sales-list">
+                </ul>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

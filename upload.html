@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Upload</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { justify-content: center; height: 100vh; display: flex; align-items: center; flex-direction: column; }
+        .admin-box { max-width: 400px; width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="admin-box card">
+        <h1>⚠️ Admin Only</h1>
+        <p>Click below to upload the full book list to the new 'bookss' collection.</p>
+        <br>
+        <button onclick="uploadAllBooks()" class="btn-danger">
+            🚀 Populate Database
+        </button>
+    </div>
+    <br>
+    <a href="index.html">Go to App</a>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+

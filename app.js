@@ -153,6 +153,11 @@ if (homeDropdown) {
             snapshot.forEach(doc => {
                 inventoryCache.push({ id: doc.id, ...doc.data() });
             });
+
+            // --- 🔄 SORTING LOGIC HERE ---
+            // Sorts the books alphabetically by Title (A-Z)
+            inventoryCache.sort((a, b) => a.title.localeCompare(b.title));
+
             renderDropdown(inventoryCache);
 
         } catch (error) {
@@ -258,7 +263,6 @@ const invContainer = document.getElementById("inventoryContainer");
 
 if (invContainer) {
     async function loadCatalog() {
-        // Read from 'bookss'
         const snapshot = await getDocs(collection(db, BOOKS_COLLECTION));
         const groupedBooks = {};
         
@@ -268,6 +272,7 @@ if (invContainer) {
             groupedBooks[b.category].push(b);
         });
 
+        // 🔄 SORTING: Sort Categories, then Sort Books inside them
         Object.keys(groupedBooks).sort().forEach(category => {
             const header = document.createElement("div");
             header.className = "category-header";
@@ -276,6 +281,9 @@ if (invContainer) {
 
             const grid = document.createElement("div");
             grid.className = "book-grid";
+
+            // Sort books within this category
+            groupedBooks[category].sort((a, b) => a.title.localeCompare(b.title));
 
             groupedBooks[category].forEach(book => {
                 const card = document.createElement("div");
